@@ -34,7 +34,7 @@ Anche le tre esperienze usano l’apertura e chiusura fluida degli accordion. Le
 
 Nell’overlay, le frecce minimali sotto l’immagine, ai lati del contatore, e i tasti ← / → scorrono tra tutte e sette le postcards, tornando alla prima dopo l’ultima. Il cambio usa soltanto uno scorrimento laterale simultaneo delle due immagini, sempre opache e senza dissolvenze; con movimento ridotto è immediato. L’area immagine mantiene un’altezza stabile passando da foto verticali a orizzontali o alla GIF. Foto, miniature e titoli delle cartelle non sono selezionabili; le immagini non sono trascinabili. Lunabeige FM usa il badge New con stile e animazione del riferimento di Daniel White.
 
-Le cartelle usano gli SVG `v2-tree__icon-closed` e `v2-tree__icon-open` del riferimento salvato, con transizione di opacità e scala. L’espansione dei contenuti è animata nei browser che supportano `interpolate-size` e `::details-content`, con apertura nativa negli altri. Sides usa un accento viola. Le preferenze di movimento ridotto disattivano le animazioni.
+Le cartelle usano gli SVG `v2-tree__icon-closed` e `v2-tree__icon-open` del riferimento salvato, con transizione di opacità e scala. Apertura e chiusura di cartelle ed esperienze animano l’altezza misurata con Web Animations, senza dipendere da `interpolate-size`; senza JavaScript rimane disponibile il comportamento nativo di `details`. Sides usa un accento viola. Le preferenze di movimento ridotto disattivano le animazioni.
 
 Non occorrono dipendenze, build o servizi esterni per visualizzare la pagina. Le cartelle originali scaricate sono conservate. La pagina usa elementi `details` nativi, focus visibile e dialogo chiudibile con Escape. I contenuti e i link principali funzionano senza JavaScript.
 

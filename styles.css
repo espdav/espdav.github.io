@@ -15,11 +15,8 @@ body{overflow-x:clip}
 .folder[open] .v2-tree__icon svg,.folder>summary:hover .v2-tree__icon svg{fill-opacity:.24}
 .v2-tree__icon-open,.folder[open] .v2-tree__icon-closed{opacity:0}
 .folder[open] .v2-tree__icon-open{opacity:1;transform:none}
-@supports (interpolate-size:allow-keywords) and (transition-behavior:allow-discrete){
-  .tree,.experience-list{interpolate-size:allow-keywords}
-  :is(.folder,.experience)::details-content{block-size:0;overflow:hidden;transition:block-size .34s cubic-bezier(.23,1,.32,1),content-visibility .34s allow-discrete}
-  :is(.folder,.experience)[open]::details-content{block-size:auto}
-}
+/* Height is animated in JavaScript; native details remain usable without it. */
+:is(.folder,.experience).is-animating{overflow:hidden}
 
 /* A shallow, slightly irregular fan extending beyond the text column. */
 .shelf{width:calc(100% + 112px);margin-left:-56px;padding:42px 0 28px}
@@ -136,9 +133,6 @@ body{overflow-x:clip}
   .project-title{transition:transform .5s var(--ease),color .35s var(--ease)}
   .v2-tree__icon svg{transition:fill-opacity .35s var(--ease)}
   .gallery-nav{transition:color .35s var(--ease),transform .35s var(--ease)}
-  @supports (interpolate-size:allow-keywords) and (transition-behavior:allow-discrete){
-    :is(.folder,.experience)::details-content{transition:block-size .5s var(--ease),content-visibility .5s allow-discrete}
-  }
 }
 @media(max-width:700px) and (pointer:coarse){.gallery-stage{touch-action:pan-y pinch-zoom}}
 

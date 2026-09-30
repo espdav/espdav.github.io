@@ -299,6 +299,44 @@ if (previewLinks.length) {
   reducedMotion.addEventListener('change', reset);
 }
 
+// Animate measured heights, including closing, without experimental details CSS.
+for (const accordion of document.querySelectorAll('details.folder, details.experience')) {
+  const summary = accordion.querySelector('summary');
+  let animation = null;
+  let expanded = accordion.open;
+  const finish = () => {
+    animation?.cancel();
+    animation = null;
+    accordion.open = expanded;
+    accordion.classList.remove('is-animating');
+    delete accordion.dataset.expanded;
+    summary.removeAttribute('aria-expanded');
+  };
+  summary.addEventListener('click', event => {
+    event.preventDefault();
+    const from = accordion.getBoundingClientRect().height;
+    expanded = animation ? !expanded : !accordion.open;
+    animation?.cancel();
+    animation = null;
+    accordion.dataset.expanded = String(expanded);
+    summary.setAttribute('aria-expanded', String(expanded));
+    accordion.dispatchEvent(new Event('accordionchange'));
+    if (reducedMotion.matches || !accordion.animate) { finish(); return; }
+    // Measure both natural endpoints before keeping the content open to animate.
+    accordion.open = expanded;
+    const to = accordion.getBoundingClientRect().height;
+    accordion.open = true;
+    accordion.classList.add('is-animating');
+    animation = accordion.animate([{ height: `${from}px` }, { height: `${to}px` }], {
+      duration: 500,
+      easing: getComputedStyle(document.documentElement).getPropertyValue('--ease').trim()
+    });
+    animation.onfinish = finish;
+  });
+  window.addEventListener('resize', () => { if (animation) finish(); });
+  reducedMotion.addEventListener('change', () => { if (animation && reducedMotion.matches) finish(); });
+}
+
 // Animate the +/× as vector geometry, never as a rotated text bitmap.
 for (const accordion of document.querySelectorAll('details.experience')) {
   const path = accordion.querySelector('.plus path');
@@ -314,7 +352,7 @@ for (const accordion of document.querySelectorAll('details.experience')) {
   };
   const update = () => {
     cancelAnimationFrame(frame);
-    const target = accordion.open ? 1 : 0;
+    const target = (accordion.dataset.expanded ?? String(accordion.open)) === 'true' ? 1 : 0;
     if (reducedMotion.matches) { progress = target; draw(); return; }
     const from = progress, start = performance.now();
     const step = now => {
@@ -327,5 +365,6 @@ for (const accordion of document.querySelectorAll('details.experience')) {
   };
   draw();
   accordion.addEventListener('toggle', update);
+  accordion.addEventListener('accordionchange', update);
   reducedMotion.addEventListener('change', update);
 }
