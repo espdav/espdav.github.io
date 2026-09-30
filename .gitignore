@@ -1,0 +1,26 @@
+# Copie dei siti di riferimento e verifiche locali
+/127.0.0.1_8081/
+/archive.org/
+/saveweb2zip-com-espdav-framer-website/
+/verification/
+/web-static.archive.org/
+/web.archive.org/
+
+# Asset delle versioni precedenti, non utilizzati dal sito
+/assets/ABCDiatypeMonoVariable.ttf
+/assets/GeistPixel-Square.woff2
+/assets/close_24dp_FFF_FILL0_wght200_GRAD0_opsz24.svg
+/assets/close_25dp_FFF_FILL0_wght300_GRAD0_opsz24.svg
+/assets/thumbnails/*.png
+
+# File locali e credenziali
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+node_modules/
+.DS_Store
+Thumbs.db
+.codex/
+.agents/
