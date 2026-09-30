@@ -143,6 +143,8 @@ body{overflow-x:clip}
 .project-preview[data-visible=true]{opacity:1;transform:none}
 .project-preview[hidden]{display:none}
 .project-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
+/* Smaller previews fit beside the 560px column, with a 24px gap and edge margin. */
+@media(width < 1366px){.project-preview{width:clamp(160px,calc((100vw - 560px) / 2 - 48px),200px)}}
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.project-preview{display:none}}
 
 /* No opacity interpolation before the character-by-character reveal. */
