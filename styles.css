@@ -16,7 +16,9 @@ body{overflow-x:clip}
 .v2-tree__icon-open,.folder[open] .v2-tree__icon-closed{opacity:0}
 .folder[open] .v2-tree__icon-open{opacity:1;transform:none}
 /* Height is animated in JavaScript; native details remain usable without it. */
-:is(.folder,.experience).is-animating{overflow:hidden}
+.experience.is-animating{overflow:hidden}
+/* Keep the outer tree connectors visible while clipping sliding content vertically. */
+.folder.is-animating{clip-path:inset(0 -25px)}
 
 /* A shallow, slightly irregular fan extending beyond the text column. */
 .shelf{width:calc(100% + 112px);margin-left:-56px;padding:42px 0 28px}
