@@ -347,7 +347,9 @@ for (const accordion of document.querySelectorAll('details.experience')) {
     // Rotate endpoints on a circle: each stroke stays 10px long throughout.
     const angle = progress * Math.PI / 4;
     const x = 5 * Math.cos(angle), y = 5 * Math.sin(angle);
-    const p = [8-x, 8-y, 8+x, 8+y, 8+y, 8-x, 8-y, 8+x].map(value => +value.toFixed(3));
+    // Anchor the painted right edge, including half the 2px stroke, at x=16.
+    const centerX = 16 - x - Math.sin(angle);
+    const p = [centerX-x, 8-y, centerX+x, 8+y, centerX+y, 8-x, centerX-y, 8+x].map(value => +value.toFixed(3));
     path.setAttribute('d', `M${p[0]} ${p[1]}L${p[2]} ${p[3]}M${p[4]} ${p[5]}L${p[6]} ${p[7]}`);
   };
   const update = () => {
