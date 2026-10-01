@@ -97,6 +97,11 @@ body{overflow-x:clip}
 .project-page{--project-accent:#ff3737;--accent:var(--ink);--guide:var(--line);--muted:#615d57}
 .project-page.somnis-page{--project-accent:var(--ink)}
 .project-page .identity{flex-wrap:wrap}
+.project-navigation .project-return{display:inline-flex;align-items:center;gap:8px;color:#8b877f;text-decoration:none;transition:color .35s var(--ease)}
+.project-return svg{flex:none;transition:transform .35s var(--ease)}
+.project-navigation .project-return:is(:hover,:focus-visible){color:var(--ink);text-decoration:none}
+.project-return:is(:hover,:focus-visible) svg{transform:translateX(-3px)}
+@media(prefers-reduced-motion:reduce){.project-return:is(:hover,:focus-visible) svg{transform:none}}
 .project-page .section-heading{gap:12px}
 .project-page .project-heading{color:var(--project-accent)}
 .project-page.somnis-page .section-heading .project-heading{color:#8b877f}
