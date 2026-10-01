@@ -2,7 +2,7 @@
 
 Restyling statico basato sulla versione di Daniel White salvata nel progetto (25 agosto 2026): fondo avorio, colonna da 560 px, font Geist Mono, cartelle espandibili, microinterazioni e schede inclinate.
 
-I contenuti includono progetti, esperienze, certificazioni e contatti. Proximove ha una pagina locale in `progetti/proximove.html`; gli altri progetti mantengono i collegamenti esterni.
+I contenuti includono progetti, esperienze, certificazioni e contatti. Proximove e Somnis hanno pagine locali in `progetti/`, collegate dalla homepage con URL senza estensione. Gli altri progetti mantengono i collegamenti esterni.
 
 ## Anteprima
 
@@ -54,3 +54,11 @@ Il carattere corrente è Geist Mono, identificato nel CSS di alessiocardelli.com
 Le quattro thumbnail WebP sono precaricate dalla home e decodificate una volta dal JavaScript. Ogni progetto riusa lo stesso elemento immagine; il riquadro contiene una sola thumbnail anche durante il cambio progetto. L'hover copre l'intero link, compresi categoria e spazi vuoti.
 
 I segni +/× degli accordion hanno un'area di 16 px e tratti da 2 px: la geometria mantiene costante la lunghezza dei segmenti durante l'animazione. La freccia del footer è da 22 px su entrambe le pagine. In Proximove la navigazione superiore mostra soltanto “Torna indietro”, diretto alla home.
+
+## Condivisione e SEO
+
+Le tre pagine includono descrizioni dedicate, URL canonici, Open Graph, Twitter Card e dati strutturati JSON-LD. `robots.txt` indica la sitemap delle tre pagine. La copertina di condivisione è `assets/social/davide-esposito.jpg` (1200×630), generata con Imagegen e ottimizzata per il caricamento.
+
+Su mobile la scala tipografica è uguale al desktop. Le discipline sono disposte su quattro righe senza separatori; le date delle esperienze compaiono sotto il ruolo, con le icone + allineate al bordo destro del contenuto.
+
+Somnis usa il video demo originale su Google Drive e incorpora la presentazione completa di Google Slides. I testi sintetizzano la presentazione del progetto, inclusi i limiti dei test.

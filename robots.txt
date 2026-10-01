@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://espdav.github.io/sitemap.xml
