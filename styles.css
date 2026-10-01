@@ -99,6 +99,7 @@ body{overflow-x:clip}
 .project-page .identity{flex-wrap:wrap}
 .project-page .section-heading{gap:12px}
 .project-page .project-heading{color:var(--project-accent)}
+.project-page.somnis-page .section-heading .project-heading{color:#8b877f}
 .project-page .aside,.project-page .copyright,.project-page .meta:before{color:var(--muted)}
 .project-page .project-copy p{margin-bottom:16px;text-wrap:pretty}
 .project-page .project-highlight{border-left:2px solid var(--project-accent);padding-left:17px}
@@ -162,7 +163,7 @@ body{overflow-x:clip}
 
 /* Mobile keeps the desktop type scale and places dates beneath each role. */
 @media(max-width:540px){
-  .intro>.disciplines{grid-template-columns:1fr;gap:12px;border:0;padding-top:0}
+  .intro>.disciplines{grid-template-columns:1fr;gap:12px}
   .intro>.disciplines>div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:0;border:0}
   .intro>.disciplines small{margin-top:0;text-align:right}
   .experience summary{grid-template-columns:minmax(0,1fr) 16px;column-gap:18px;row-gap:3px}
